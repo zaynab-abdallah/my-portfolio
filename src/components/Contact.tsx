@@ -79,13 +79,13 @@ const Contact = () => {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="hero" size="lg" asChild>
-                <a href="mailto:hello@johndoe.dev">
+                <a href="mailto:zaynabshaltout718@gmail.com">
                   <Mail className="h-4 w-4 mr-2" />
                   Send Email
                 </a>
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
-                <a href="./src/pdf/Zaynab-Abdallah-Shaltout-FlowCV-Resume-20251228 (1).pdf" download>
+                <a href={`${import.meta.env.BASE_URL}resume.pdf`} download="Zaynab-Abdallah-Shaltout-Resume.pdf">
                   <Download className="h-4 w-4 mr-2" />
                   Download CV
                 </a>
