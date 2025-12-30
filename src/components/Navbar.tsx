@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/img/LOGO.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +46,7 @@ const Navbar = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <img className="w-32 h-20 object-contain" src={logo} alt="Zaynab Shaltout Logo" />
+          <img className="w-32 h-20 object-contain" src={`${import.meta.env.BASE_URL}logo.png`} alt="Zaynab Shaltout Logo" />
         </a>
 
         {/* Desktop nav */}
