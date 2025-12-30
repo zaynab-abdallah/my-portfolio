@@ -28,17 +28,14 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: my-portfolio/package-lock.json
       
       - name: Install dependencies
-        working-directory: ./my-portfolio
         run: npm ci
       
       - name: Build
-        working-directory: ./my-portfolio
         env:
-          # Replace 'my-portfolio' with your actual repository name if different
-          # If deploying to username.github.io (root), set this to '/'
+          # If deploying to username.github.io/repo-name, use: /repo-name/
+          # If deploying to username.github.io (root), use: /
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
       
@@ -48,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './my-portfolio/dist'
+          path: './dist'
 
   deploy:
     environment:
