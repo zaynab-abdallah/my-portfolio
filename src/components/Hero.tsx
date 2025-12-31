@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/img/photo.jpeg";
+import profilePhoto from "@/img/photo.png";
 import TypingEffect from "@/components/TypingEffect";
 
 const Hero = () => {
@@ -45,21 +45,53 @@ const Hero = () => {
           {/* Name with Photo */}
           <div className="opacity-0 animate-fade-in-up animation-delay-100 flex flex-col items-center gap-6 mb-4">
             {/* Profile Photo with Rotating Border */}
+            {/* 
+              CUSTOMIZATION GUIDE:
+              - Border Rotation Speed: Change '10s' to adjust speed (higher = slower)
+              - Border Opacity: Change 'opacity-80' (0-100)
+              - Border Colors: Edit gradient classes (from-primary, via-primary/70, to-primary)
+              - Border Width: Change '-inset-3' (larger = thicker border)
+              - Photo Size: Change w-32/h-32 md:w-40/h-40 lg:w-48/h-48
+              - Float Animation Speed: Change '4s' (higher = slower)
+              - Float Distance: Edit float animation in index.css (translateY value)
+              - Glow Intensity: Change 'blur-3xl' (blur-sm, blur-md, blur-lg, blur-xl, blur-2xl, blur-3xl)
+              - Glow Opacity: Change 'bg-primary/30' (primary/10 to primary/50)
+              - Border Color: Change 'border-primary/30' (primary/10 to primary/50)
+            */}
             <div className="relative inline-block">
-              {/* Rotating Border Ring */}
-              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-primary via-primary/70 to-primary animate-rotate-border opacity-80">
-                <div className="absolute inset-[3px] rounded-full bg-background"></div>
+              {/* Rotating Border Ring - أبطأ وأوضح */}
+              <div 
+                className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary via-cyan-400 to-primary opacity-90"
+                style={{ 
+                  animation: 'rotate-border 15s linear infinite'
+                }}
+              >
+                <div className="absolute inset-[4px] rounded-full bg-background"></div>
               </div>
-              {/* Photo Container with Floating Animation */}
-              <div className="relative w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl z-10 animate-float">
+              {/* Photo Container with Floating Animation - حركة أوضح */}
+              <div 
+                className="relative w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl z-10 hover:scale-105 transition-transform duration-300"
+                style={{
+                  animation: 'float 5s ease-in-out infinite'
+                }}
+              >
                 <img 
                   src={profilePhoto} 
                   alt="Zaynab Shaltout" 
                   className="w-full h-full object-cover"
+                  style={{
+                    objectPosition: 'center 1%'
+                  }}
                 />
               </div>
-              {/* Glow effect behind photo */}
-              <div className="absolute inset-0 rounded-full bg-primary/30 blur-3xl -z-10 animate-float" style={{ animationDelay: '0.5s' }}></div>
+              {/* Glow effect behind photo - توهج أقوى */}
+              <div 
+                className="absolute inset-0 rounded-full bg-primary/40 blur-[60px] -z-10"
+                style={{ 
+                  animation: 'float 5s ease-in-out infinite',
+                  animationDelay: '0.7s'
+                }}
+              ></div>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <TypingEffect 
