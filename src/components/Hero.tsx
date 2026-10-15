@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profilePhoto from "@/img/photo.png";
+import profilePhoto from "@/img/WhatsApp Image 2026-10-16 at 12.59.10 AM.jpeg";
 import TypingEffect from "@/components/TypingEffect";
 
 const Hero = () => {
